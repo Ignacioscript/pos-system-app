@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-header> Current Product</x-header>
+    <x-header> {{ $product->product_name }}</x-header>
 
 
     <x-cards.info>
@@ -19,7 +19,7 @@
 
                         <h2
                             class="text-base  text-gray-900 sm:text-2xl dark:text-white">
-                           Current Stock:  {{ $product->qty_stock }}
+                           Stock Actual: <strong> {{ $product->qty_stock }}</strong>
                         </h2>
                         <div class="mt-4 sm:items-center sm:gap-4 sm:flex">
                             <p
@@ -32,8 +32,8 @@
                         </div>
 
                         <div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
-                            <x-buttons.edit href="{{ route('products.edit', $product->id) }}"> Edit Product </x-buttons.edit>
-                            <x-buttons.delete form="delete-form"> Delete Product </x-buttons.delete>
+                            <x-buttons.edit href="{{ route('products.edit', $product->id) }}"> Editar </x-buttons.edit>
+                            <x-buttons.delete form="delete-form"> Eliminar </x-buttons.delete>
 
                             <a
                                 href="#"

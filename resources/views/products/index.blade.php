@@ -109,7 +109,7 @@
                             ID
                         </th>
                         <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
-                            Name
+                            Producto
                         </th>
                         {{--                        <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">--}}
                         {{--                            Description--}}
@@ -118,13 +118,13 @@
                             Stock
                         </th>
                         <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
-                            Price
+                            Precio
                         </th>
                         <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
-                            Category
+                            Categoria
                         </th>
                         <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
-                            Supplier
+                            Proveedor
                         </th>
                         <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
                         </th>
