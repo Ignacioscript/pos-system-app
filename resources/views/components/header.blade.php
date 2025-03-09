@@ -7,15 +7,15 @@
     <div class="ml-4 flex items-center md:ml-6">
         <div class="space-x-2 px-2">
 
-           @guest
-                <x-buttons.login href="/"> Login</x-buttons.login>
-                <x-buttons.register href="/register">Register</x-buttons.register>
+{{--           @guest--}}
+{{--                <x-buttons.login href="/"> Login</x-buttons.login>--}}
+{{--                <x-buttons.register href="/register">Register</x-buttons.register>--}}
 
-            @endguest
+{{--            @endguest--}}
 
-            @auth
-                   <x-buttons.login> Log out</x-buttons.login>
-            @endauth
+{{--            @auth--}}
+{{--                   <x-buttons.login> Log out</x-buttons.login>--}}
+{{--            @endauth--}}
 
         </div>
         <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-none">

@@ -11,6 +11,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
         return view('categories.index', compact('categories'));
+
     }
 
     public function create()
@@ -26,7 +27,13 @@ class CategoryController extends Controller
         ]);
 
         Category::create($request->all());
-        return redirect()->route('categories.index');
+        return redirect()->route('products.create');
+    }
+
+    public function show(Category $category)
+    {
+
+        return view('categories.show', compact('category'));
     }
 
     public function edit(Category $category)
@@ -42,12 +49,12 @@ class CategoryController extends Controller
         ]);
 
         $category->update($request->all());
-        return redirect()->route('customers.index');
+        return redirect()->route('products.index');
     }
 
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('categories.index');
+        return redirect()->route('products.index');
     }
 }

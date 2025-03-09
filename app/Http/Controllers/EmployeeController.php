@@ -12,7 +12,8 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::all();
-        return view('employees.index', compact('employees'));
+        //return view('employees.index', compact('employees'));
+        return response()->json($employees);
     }
 
     public function create()
@@ -24,7 +25,7 @@ class EmployeeController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|email|unique:employees,email',
@@ -34,8 +35,14 @@ class EmployeeController extends Controller
             'location_id' => 'required|exists:locations,id'
         ]);
 
-        Employee::create($request->all());
-        return redirect()->route('employees.index');
+        $employee = Employee::create($validated);
+        //return redirect()->route('employees.index');
+        return response()->json($employee, 201);
+    }
+
+    public function show(Employee $employee)
+    {
+        return response()->json($employee);
     }
 
     public function edit(Employee $employee)
@@ -47,24 +54,26 @@ class EmployeeController extends Controller
 
     public function update(Request $request, Employee $employee)
     {
-        $request->validate([
+        $validated = $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'email' => 'required|email|unique:employees,email',
+            'email' => 'required|email|unique:employees,email,' . $employee->id,
             "phone_number" => 'required|string|max:20',
             'jobType_id' => 'required|exists:job_types,id',
             'hired_date' => 'required|date',
             'location_id' => 'required|exists:locations,id'
         ]);
 
-        $employee->update($request->all());
-        return redirect()->route('employees.index');
+        $employee->update($validated);
+        //return redirect()->route('employees.index');
+        return response()->json($employee);
     }
 
     public function destroy(Employee $employee)
     {
         $employee->delete();
-        return redirect()->route('employees.index');
+        //return redirect()->route('employees.index');
+        return response()->json(null, 204);
     }
 
 
