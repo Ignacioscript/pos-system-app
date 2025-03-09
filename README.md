@@ -22,8 +22,8 @@ This is a web application built with Laravel. It allows users to manage customer
 
 1. **Clone the repository**:
     ```bash
-    git clone <repository-url>
-    cd my-web-app
+    git clone https://github.com/Ignacioscript/pos-system-app
+    cd pos-system-app
     ```
 
 2. **Install dependencies**:
