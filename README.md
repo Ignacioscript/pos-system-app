@@ -48,6 +48,7 @@ This is a web application built with Laravel. It allows users to manage customer
 6. **Run the application**:
     ```bash
     php artisan serve
+    npm run dev
     ```
 
 ## Usage
