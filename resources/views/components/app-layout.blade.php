@@ -24,21 +24,23 @@
         <aside class="  bg-gray-800 w-64 min-h-screen border rounded-lg">
             <div class="px-4 py-6">
                 <div class="shrink-0 mb-20 text-white">
-                    <img class="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
-                         alt="Your Company">
-                    LOGO
+{{--                    <img class="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"--}}
+{{--                         alt="Your Company">--}}
+                    POS-System-App
                 </div>
                 <nav class="mt-6">
                     <div class="space-y-1">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <x-responsive-nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard
+                        <x-responsive-nav-link href="/" :active="request()->is('/')">Dashboard
                         </x-responsive-nav-link>
-                        <x-responsive-nav-link href="/sales" :active="request()->is('sales')">Sales</x-responsive-nav-link>
-                        <x-responsive-nav-link href="/products" :active="request()->is('products')">Products
+                        <x-responsive-nav-link href="/sales" :active="request()->is('sales')">Ventas</x-responsive-nav-link>
+                        <x-responsive-nav-link href="/products" :active="request()->is('products')">Productos
                         </x-responsive-nav-link>
-                        <x-responsive-nav-link href="/reports" :active="request()->is('reports')">Reports
+{{--                        <x-responsive-nav-link href="/reports" :active="request()->is('reports')">Reports--}}
+{{--                        </x-responsive-nav-link>--}}
+                        <x-responsive-nav-link href="/customers" :active="request()->is('customers')">Clientes
                         </x-responsive-nav-link>
-                        <x-responsive-nav-link href="/clients" :active="request()->is('clients')">Clients
+                        <x-responsive-nav-link href="/suppliers" :active="request()->is('suppliers')">Proveedores
                         </x-responsive-nav-link>
                     </div>
                 </nav>
@@ -63,8 +65,18 @@
                     {{  $slot  }}
                 </div>
             </main>
+            <!-- Footer -->
+            <footer class="bg-gray-800 text-white py-4 mt-10">
+                <div class="container mx-auto text-center">
+                    <p> POS System App - created by Ignacio Navarro for the program ADSO SENA 2025</p>
+                </div>
+            </footer>
         </div>
+
     </div>
+
+
+
     </body>
     </html>
 

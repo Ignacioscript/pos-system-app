@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\JobType;
+use App\Models\Location;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,13 @@ class EmployeeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'first_name' => $this->faker->firstName,
+            'last_name' => $this->faker->lastName,
+            'email' => $this->faker->unique()->email,
+            'phone_number' => $this->faker->unique()->phoneNumber,
+            'jobType_id' => JobType::factory(),
+            'hired_date' => now()->toDateString(),
+            'location_id' => Location::factory()
         ];
     }
 }

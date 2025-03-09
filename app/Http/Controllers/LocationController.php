@@ -27,7 +27,7 @@ class LocationController extends Controller
         ]);
 
         Location::create($request->all());
-        return redirect()->route('locations.index');
+        return redirect()->route('suppliers.create');
     }
 
     public function edit(Location $location)

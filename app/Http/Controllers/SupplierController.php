@@ -23,14 +23,19 @@ class SupplierController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'company_name' => 'required|string|max:255',
             'location_id' => 'required|exists:locations,id',
             'phone_number' => 'required|string|max:20'
         ]);
 
-        Supplier::create($request->all());
-        return redirect()->route('suppliers.index');
+        Supplier::create($validated);
+        return redirect()->route('products.create');
+    }
+
+    public function show(Supplier $supplier)
+    {
+        return view('suppliers.show', compact('supplier'));
     }
 
     public function edit(Supplier $supplier)
@@ -54,6 +59,6 @@ class SupplierController extends Controller
     public function destroy(Supplier $supplier)
     {
         $supplier->delete();
-        return redirect()->route('suppliers.index');
+        return redirect()->route('products.index');
     }
 }

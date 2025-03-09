@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Location;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,9 @@ class SupplierFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'location_id' => Location::factory(),
+            'company_name' => $this->faker->company(),
+            'phone_number' => $this->faker->phoneNumber(),
         ];
     }
 }

@@ -12,10 +12,20 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::with('category')->latest()->paginate(5);
-        return view('products.index', compact('products'));
+        $query = Product::query();
+
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where('product_name', 'like', "%{$search}%");
+
+        }
+        $products = $query->latest()->paginate(5);
+        //$products = Product::with('category')->latest()->paginate(5);
+        $categories = Category::all();
+        $suppliers = Supplier::all();
+        return view('products.index', compact('products', 'categories', 'suppliers'));
     }
 
     /**
@@ -24,7 +34,8 @@ class ProductController extends Controller
     public function create()
     {
         $suppliers = Supplier::all();
-        return view('products.create', compact("suppliers"));
+        $categories = Category::all();
+        return view('products.create', compact("suppliers", 'categories'));
     }
 
     /**
@@ -74,7 +85,8 @@ class ProductController extends Controller
         // Attach suppliers to the product
         $product->suppliers()->sync($validated['suppliers_ids']);
 
-        return redirect()->route('products.index')->with('success', 'Product created');
+       return redirect()->route('products.index')->with('success', 'Product created');
+       // return response()->json($product, 201);
     }
 
     /**
@@ -82,6 +94,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+
         return view('products.show', compact('product'));
     }
 

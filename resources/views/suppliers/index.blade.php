@@ -1,11 +1,5 @@
 <x-app-layout>
-    <x-header> Products</x-header>
-    <div class="flex justify-between mb-10">
-        <form method="GET" action="{{ route('products.index') }}" class="flex space-x-2">
-            <input type="text" name="search" placeholder="  Buscar por producto" class="rounded-md border-gray-300 dark:bg-gray-800 dark:text-gray-100">
-            <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500">Buscar</button>
-        </form>
-    </div>
+    <x-header> Proveedores</x-header>
 
 
 {{--    <div class="flex justify-between mb-10 ">--}}
@@ -100,8 +94,8 @@
         <x-cards.card-table>
 
             <div>
-                <x-slot:title> Base de Datos Productos</x-slot:title>
-                <x-forms.add-button href="/products/create" type="button"> Nuevo Producto</x-forms.add-button>
+                <x-slot:title> Base de Datos Proveedores</x-slot:title>
+                <x-forms.add-button href="{{route('suppliers.create')}}" type="button"> Nuevo Proveedor</x-forms.add-button>
 
 
             </div>
@@ -115,82 +109,52 @@
                             ID
                         </th>
                         <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
-                            Producto
+                            Nombre de Proveedor
                         </th>
-                        {{--                        <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">--}}
-                        {{--                            Description--}}
-                        {{--                        </th>--}}
+
                         <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
-                            Stock
+                            Contacto
                         </th>
                         <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
-                            Precio
+                            Locacion
                         </th>
-                        <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
-                            Categoria
-                        </th>
-                        <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
-                            Proveedor
-                        </th>
-                        <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
-                        </th>
+
 
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($products as $product)
+                    @foreach($suppliers as $supplier)
                         <tr>
 
 
                             <td class="px-5 py-5 dark:text-gray-100 text-sm ">
-                                    {{ $product->id }}
+                                {{ $supplier->id }}
                             </td>
                             <td class="px-5 py-5 dark:text-gray-100  text-sm hover:font-bold">
-                                <a href="{{ route('products.show', $product->id) }}">{{ $product->product_name }}</a>
+                                <a href="{{ route('suppliers.show', $supplier->id) }}">{{ $supplier->company_name }}</a>
                             </td>
 
 
                             <td class="px-5 py-5 dark:text-gray-100  text-sm">
-                                {{ $product->qty_stock }}
+                                {{ $supplier->phone_number }}
                             </td>
-                            <td class="px-5 py-5 dark:text-gray-100  text-sm">
-                                {{ $product->price }}
-                            </td>
-{{--                            <td class="px-5 py-5 dark:text-gray-100  text-sm hover:underline">--}}
 
-{{--                                    <a href="{{ route('categories.show', $product->category->id) }}">{{ $product->category->name }}</a>--}}
-{{--                            </td>--}}
-
-{{--                            <td class="px-5 py-5 dark:text-gray-100 text-sm hover:underline">--}}
-{{--                                @foreach($product->suppliers as $supplier)--}}
-{{--                                    <a href="/suppliers/{{ $supplier->id }}">{{ $supplier->company_name }}</a><br>--}}
-{{--                                @endforeach--}}
-{{--                            </td>--}}
 
                             <td class="px-5 py-5 dark:text-gray-100 text-sm hover:font-bold">
-                                @if($product->category)
-                                    <a href="{{ route('categories.show', $product->category->id) }}">{{ $product->category->name }}</a>
+                                @if($supplier->location)
+                                    <a href="{{ route('suppliers.show', $supplier->location->id) }}">{{ $supplier->location->city }}</a>
                                 @else
                                     No Category
                                 @endif
                             </td>
 
-                            <td class="px-5 py-5 dark:text-gray-100 text-sm hover:font-bold">
-                                @if($product->suppliers->isNotEmpty())
-                                    @foreach($product->suppliers as $supplier)
-                                        <a href="{{ route('suppliers.show', $supplier->id) }}">{{ $supplier->company_name }}</a>
-                                    @endforeach
-                                @else
-                                    No Suppliers
-                                @endif
-                            </td>
 
                             <td class="px-5 py-5  text-sm">
                                 <div class="space-x-2">
                                     <x-buttons.edit
-                                        href="{{ route('products.edit', $product->id) }}"> Editar
+                                        href="{{ route('suppliers.edit', $supplier->id) }}"> Editar
                                     </x-buttons.edit>
-                                    <x-buttons.check href="{{ route('products.show', $product->id) }}"> Revisar
+                                    <x-buttons.check href="{{ route('suppliers.show', $supplier->id) }}"> Revisar
                                     </x-buttons.check>
                                 </div>
                             </td>
@@ -205,7 +169,7 @@
 
 
         </x-cards.card-table>
-        {{ $products->links() }}
+{{--        {{ $suppliers->links() }}--}}
 
 
     </div>
