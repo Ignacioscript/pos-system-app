@@ -48,8 +48,9 @@ This is a web application built with Laravel. It allows users to manage customer
 6. **Run the application**:
     ```bash
     php artisan serve
+    npm run dev
     ```
-
+   
 ## Usage
 
 - Access the application at `http://localhost:8000`.
@@ -60,4 +61,4 @@ Thank you for considering contributing to this project! Please follow the [contr
 
 ## License
 
-This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)

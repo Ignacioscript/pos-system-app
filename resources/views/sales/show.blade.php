@@ -9,8 +9,8 @@
                 <h3 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">Informacion de Venta</h3>
 
             </div>
-            <div class="mt-6 border-t border-gray-100">
-                <dl class="divide-y divide-gray-100">
+            <div class="mt-6 border-t border-gray-400">
+                <dl class="divide-y divide-gray-700">
                     <div class="px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                         <dt class="text-xl font-semibold text-gray-900 sm:text-base dark:text-white">Nombre del Producto</dt>
                         <dd class="mb-6 text-gray-500 dark:text-gray-400">{{$sale->product->product_name}}</dd>
