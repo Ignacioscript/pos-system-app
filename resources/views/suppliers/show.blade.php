@@ -37,13 +37,13 @@
 
                             <hr class="my-6 md:my-8 border-gray-200 dark:border-gray-800"/>
 
-                           <div>
+{{--                           <div>--}}
 
 
-                               <a href="{{route('suppliers.index')}}" class="mb-6 text-gray-900 dark:text-white font-semibold hover:underline">
-                                   Volver
-                               </a>
-                           </div>
+{{--                               <a href="{{route('suppliers.index')}}" class="mb-6 text-gray-900 dark:text-white font-semibold hover:underline">--}}
+{{--                                   Volver--}}
+{{--                               </a>--}}
+{{--                           </div>--}}
 
                         </div>
 

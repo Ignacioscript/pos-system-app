@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('job_types', function (Blueprint $table) {
             $table->id();
             $table->string('job_title');
-            $table->decimal('salary', 8, 2);
+            $table->decimal('salary', 15, 2);
             $table->timestamps();
         });
     }

@@ -3,7 +3,7 @@
 
     <div class="flex justify-between mb-10">
         <form method="GET" action="{{ route('customers.index') }}" class="flex space-x-2">
-            <input type="text" name="search" placeholder="  Buscar por apellido" class="rounded-md border-gray-300 dark:bg-gray-800 dark:text-gray-100">
+            <input type="text" name="search" placeholder="  Buscar por apellido" class=" px-3 rounded-md border-gray-300 dark:bg-gray-800 dark:text-gray-100">
             <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500">Buscar</button>
         </form>
     </div>

@@ -68,7 +68,7 @@
             <!-- Footer -->
             <footer class="bg-gray-800 text-white py-4 mt-10">
                 <div class="container mx-auto text-center">
-                    <p> POS System App - created by Ignacio Navarro for the program ADSO SENA 2025</p>
+                    <p> POS System App - created by Ignacio Navarro - ADSO SENA 2025</p>
                 </div>
             </footer>
         </div>
