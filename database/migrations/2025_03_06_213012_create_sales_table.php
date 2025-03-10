@@ -16,9 +16,9 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('customer_id');
             $table->integer('quantity');
-            $table->decimal('price', 8, 2);
+            $table->decimal('price', 15, 2);
             $table->decimal('discount', 8, 2)->nullable();
-            $table->decimal('total', 8, 2);
+            $table->decimal('total', 15, 2);
 
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('customer_id')->references('id')->on('customers');

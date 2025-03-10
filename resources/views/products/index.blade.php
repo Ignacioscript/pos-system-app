@@ -2,7 +2,7 @@
     <x-header> Products</x-header>
     <div class="flex justify-between mb-10">
         <form method="GET" action="{{ route('products.index') }}" class="flex space-x-2">
-            <input type="text" name="search" placeholder="  Buscar por producto" class="rounded-md border-gray-300 dark:bg-gray-800 dark:text-gray-100">
+            <input type="text" name="search" placeholder="  Buscar por producto" class="px-3 rounded-md border-gray-300 dark:bg-gray-800 dark:text-gray-100">
             <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500">Buscar</button>
         </form>
     </div>
@@ -111,7 +111,7 @@
                 <table class="min-w-full leading-normal table-auto  rounded-xl">
                     <thead>
                     <tr>
-                        <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
+                        <th class="px-5 py-3 border-b-2  text-right text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
                             ID
                         </th>
                         <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
@@ -120,10 +120,10 @@
                         {{--                        <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">--}}
                         {{--                            Description--}}
                         {{--                        </th>--}}
-                        <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
+                        <th class="px-5 py-3 border-b-2  text-right text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
                             Stock
                         </th>
-                        <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
+                        <th class="px-5 py-3 border-b-2  text-right text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
                             Precio
                         </th>
                         <th class="px-5 py-3 border-b-2  text-left text-xs font-semibold dark:text-gray-100 uppercase tracking-wider">
@@ -142,7 +142,7 @@
                         <tr>
 
 
-                            <td class="px-5 py-5 dark:text-gray-100 text-sm ">
+                            <td class="px-5 py-5 dark:text-gray-100 text-sm text-right">
                                     {{ $product->id }}
                             </td>
                             <td class="px-5 py-5 dark:text-gray-100  text-sm hover:font-bold">
@@ -150,11 +150,11 @@
                             </td>
 
 
-                            <td class="px-5 py-5 dark:text-gray-100  text-sm">
+                            <td class="px-5 py-5 dark:text-gray-100  text-sm text-right">
                                 {{ $product->qty_stock }}
                             </td>
-                            <td class="px-5 py-5 dark:text-gray-100  text-sm">
-                                {{ $product->price }}
+                            <td class="px-5 py-5 dark:text-gray-100  text-sm text-right">
+                               $ {{ $product->price }}
                             </td>
 {{--                            <td class="px-5 py-5 dark:text-gray-100  text-sm hover:underline">--}}
 
@@ -171,7 +171,7 @@
                                 @if($product->category)
                                     <a href="{{ route('categories.show', $product->category->id) }}">{{ $product->category->name }}</a>
                                 @else
-                                    No Category
+                                     <a href="{{route('products.edit', $product->id)}}">No Category</a>
                                 @endif
                             </td>
 

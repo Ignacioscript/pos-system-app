@@ -19,13 +19,13 @@
 
                         <h2
                             class="text-base  text-gray-900 sm:text-2xl dark:text-white">
-                           Stock Actual: <strong> {{ $product->qty_stock }}</strong>
+                           Stock Actual: <strong> {{ $product->qty_stock }} Unds</strong>
                         </h2>
                         <div class="mt-4 sm:items-center sm:gap-4 sm:flex">
                             <p
                                 class="text-2xl font-extrabold text-gray-900 sm:text-3xl dark:text-white"
                             >
-                                {{ $product->price }}
+                               $ {{ $product->price }}
                             </p>
 
 
@@ -66,11 +66,17 @@
                         <hr class="my-6 md:my-8 border-gray-200 dark:border-gray-800"/>
 
                         <p class="mb-6 text-gray-500 dark:text-gray-400">
-                            {{ $product->description }}
+                           <strong class="text-gray-300">Detalles del Producto:</strong> <br> {{ $product->description }}
                         </p>
 
                         <p class="text-gray-500 dark:text-gray-400">
-                            {{ $product->category->name }}
+                           <strong class="text-gray-300">Categoria: </strong> <br>
+{{--                            {{ $product->category->name }}--}}
+                            @if($product->category)
+                                <a href="{{ route('categories.show', $product->category->id) }}">{{ $product->category->name }}</a>
+                            @else
+                                <a href="{{route('products.edit', $product->id)}}">Sin categoria.</a>
+                            @endif
                         </p>
                     </div>
                 </div>

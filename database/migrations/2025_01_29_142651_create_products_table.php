@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('product_name');
             $table->text('description');
             $table->unsignedInteger('qty_stock');
-            $table->decimal('price', 8, 2);
+            $table->decimal('price', 15, 2);
             $table->timestamps();
         });
     }
